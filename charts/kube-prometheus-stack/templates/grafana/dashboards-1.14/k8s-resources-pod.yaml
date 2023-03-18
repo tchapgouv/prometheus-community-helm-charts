@@ -617,7 +617,7 @@ data:
                         "steppedLine": false,
                         "targets": [
                             {
-                                "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"$cluster\", namespace=\"$namespace\", pod=\"$pod\", container!=\"\", image!=\"\"}) by (container)",
+                                "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"$cluster\", namespace=\"$namespace\", pod=\"$pod\", }) by (container)",
                                 "format": "time_series",
                                 "intervalFactor": 2,
                                 "legendFormat": "{{`{{`}}container{{`}}`}}",
@@ -928,7 +928,7 @@ data:
                         ],
                         "targets": [
                             {
-                                "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"$cluster\", namespace=\"$namespace\", pod=\"$pod\", container!=\"\", image!=\"\"}) by (container)",
+                                "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"$cluster\", namespace=\"$namespace\", pod=\"$pod\", }) by (container)",
                                 "format": "table",
                                 "instant": true,
                                 "intervalFactor": 2,
@@ -964,7 +964,7 @@ data:
                                 "step": 10
                             },
                             {
-                                "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"$cluster\", namespace=\"$namespace\", pod=\"$pod\", container!=\"\", image!=\"\"}) by (container) / sum(cluster:namespace:pod_memory:active:kube_pod_container_resource_limits{cluster=\"$cluster\", namespace=\"$namespace\", pod=\"$pod\"}) by (container)",
+                                "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"$cluster\", namespace=\"$namespace\", pod=\"$pod\", }) by (container) / sum(cluster:namespace:pod_memory:active:kube_pod_container_resource_limits{cluster=\"$cluster\", namespace=\"$namespace\", pod=\"$pod\"}) by (container)",
                                 "format": "table",
                                 "instant": true,
                                 "intervalFactor": 2,
